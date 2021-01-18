@@ -1,0 +1,1021 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>interface_parser API documentation</title>
+<meta name="description" content="Interface parser …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>interface_parser</code></h1>
+</header>
+<section id="section-intro">
+<p>Interface parser</p>
+<p>Author: Peter Vago <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#112;&#101;&#116;&#101;&#114;&#46;&#118;&#97;&#103;&#111;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#112;&#101;&#116;&#101;&#114;&#46;&#118;&#97;&#103;&#111;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>, 2021
+Dependencies: ipaddress Python package</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;Interface parser
+
+Author: Peter Vago &lt;peter.vago@gmail.com&gt;, 2021
+Dependencies: ipaddress Python package
+&#34;&#34;&#34;
+
+import subprocess, re
+import logging
+logger = logging.getLogger(&#34;app&#34;) # Get logger that was initialized in the main function, https://docs.python.org/2/library/logging.html
+
+from enum import Enum
+class ExtendedEnum(Enum): # These type of &#34;util&#34; classes usually go to a more global python file (e.g. my_project_global.py) -  Peter Vago
+    &#34;&#34;&#34;Class for Enums with smart methods&#34;&#34;&#34;
+    @classmethod
+    def listnames(cls):
+        return list(map(lambda c: c.name, cls))
+    @classmethod
+    def listvalues(cls):
+        return list(map(lambda c: c.value, cls))
+
+class AddressFormats(ExtendedEnum):
+    dotted_decimal = 0 # e.g. 127.0.0.0
+    dotted_decimal_with_netmask = 1 # e.g. 127.0.0.1/8
+    binary = 2 # e.g. 11011111 00111010 00000001 00001010
+    ipv6_hex =3 # not used yet
+    ipv6_zero_supression = 4 # not used yet
+
+class IPVersion(ExtendedEnum):
+    IPv4 = 4
+    IPv6 = 6
+
+class InterfaceParser(object):
+    &#34;&#34;&#34;Interface parser class.
+    Reading and listing (printing) interface configurations&#34;&#34;&#34;
+    ip_version=IPVersion.IPv4
+    testfile = None
+
+    def __init__(self, **kwargs):
+
+        # If ip_version is specified....else it is set to &#39;4&#39;
+        try:
+            ip_version = kwargs.get(&#34;ip_version&#34;) # &#34;4&#34; or &#34;6&#34;
+        except:
+            ip_version=&#34;4&#34;
+        self._switch_to_ip_version_specific_class(ip_version)  # IPv4 / IPv6
+
+    def call_command(self, command):
+        &#34;&#34;&#34;Method for calling a method by passing method name as string (&#34;command&#34;).
+        This help keeping the main method of this class centralized. (error handling etc.)&#34;&#34;&#34;
+
+        if command in dir(self): # If command string represents a valid method in this class...
+            method = getattr(self, str(command), lambda: &#34;Invalid mode.&#34;) # convert &#34;command&#34; string into method
+            # Executing the actual method. This could be in a try-except structure and Exception could be handled here.
+            method()
+        else:
+            raise ValueError(&#34;Invalid command: %s. Refer to help for available commands.&#34;%command)
+
+    def _check_overlaps(self, if_list):
+        &#34;&#34;&#34;Using ipaddress module: network.overlaps(other_network) return True if they overlap
+        BUT: &#34;Multiple IPs in the same subnet are still fine&#34; !!!
+
+        Args:
+            if_list: list of strings. Each string should represent a network address
+
+        Returns:
+            overlaps: list of overlapping interface names. names are elements of if_list
+        &#34;&#34;&#34;
+        from ipaddress import IPv4Interface
+
+        # # overlaps method is &#34;symmetric&#34; -&gt; Enough to test combination excluding duplicates ([1,2,3] -&gt; 1-2, 1-3, 2-3)
+        # combinations = get_combinations([1,2,3,4]) # Testing
+        combinations = self._get_combinations(if_list)  # Testing
+
+        overlaps = list()
+        # Test each pairs for overlapping
+        for pair in combinations:
+            try:
+                addr_a = pair[0]  # string
+                addr_b = pair[1]
+                if_a = IPv4Interface(addr_a)  # object
+                if_b = IPv4Interface(addr_b)
+                net_a = if_a.network  # &#34;network&#34;
+                net_b = if_b.network
+            except:
+                raise ValueError(&#34;(10001) unexpected inteface-pair: %s&#34; % str(pair))
+            # print(pair, if_a, if_b)
+
+            if net_a.overlaps(net_b):  # True if if_a and if_b overlap
+                # If networks overlap, but IPs are in the same network , that is fine. Otherwise add ifaces to overlaps list.
+                if (if_a.network == if_b.network):
+                    pass  # Do not append &#39;overlaps&#39; list, because it&#39;s &#39;still fine&#39;
+                else:
+                    overlaps.append(addr_a)
+                    overlaps.append(addr_b)
+            else:
+                pass
+
+        return overlaps
+
+    def _filter_ip_addresses(self, ip_addr_show_output, format=AddressFormats.dotted_decimal):
+        &#34;&#34;&#34;Filter for IP addresses in text and insert them to a list.
+        IPv4 version
+
+        Args:
+            ip_addr_show: multiline text, format is identical with &#39;ip addr show&#39; command output format. (https://man7.org/linux/man-pages/man8/ip-address.8.html)
+            format: Enum (AddressFormats). Specifies the format of elements in ifaces list
+
+        Returns:
+            ifaces_list: list of strings
+        &#34;&#34;&#34;
+        ifaces_list = list()
+
+        # Define regexp patters for finding IPv4 format
+        # Wanted address lines starting with &#39;inet &#39;. So we exclude the sit0 type interfaces , e.g. &#34;link/sit 0.0.0.0 brd 0.0.0.0&#34;
+        pattern_ipv4_without_mask = re.compile(&#39;inet \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}&#39;) # # 127.0.0.1, 192.168.0.28
+        pattern_ipv4_with_mask = re.compile(&#39;inet \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/\d{1,2}&#39;) # 127.0.0.1/8, 192.168.0.28/24
+
+        # Select te proper regexp patter based on format argument
+        if format == AddressFormats.dotted_decimal:
+            pattern = pattern_ipv4_without_mask
+        elif format == AddressFormats.dotted_decimal_with_netmask:
+            pattern = pattern_ipv4_with_mask
+        else:
+            raise ValueError(&#34;(10010) Requested address format is not implemented:%s&#34;%(str(format.name)))
+
+        # Search for the actual addresses and append ifaces_list
+        lines = ip_addr_show_output.split(&#34;\n&#34;)
+        for line in lines:
+            #ipv4_addr = re.search(r&#39;\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}&#39;, line)
+            ipv4_addr = re.search(pattern, line)
+            if ipv4_addr:
+                ipv4_addr = ipv4_addr.group()
+                ifaces_list.append(ipv4_addr[5:]) # cut down &#34;inet &#34; from the beginning
+
+        return ifaces_list
+
+    def _formatted_print(self, ifaces_list, separator=&#34;\n&#34;):
+        &#34;&#34;&#34; Printing only.
+        Printing list elements separated by &#39;separator&#39;. Default separator is new line &#39;\n&#39;.
+
+        Args:
+            ifaces_list: list of strings to print
+            separator: elements separated by &#39;separator&#39;. Default separator is new line &#39;\n&#39;.
+
+        Returns:
+
+        &#34;&#34;&#34;
+        # 1. Basic format and/or datatype checking..
+        if not isinstance(ifaces_list, list):
+            raise TypeError(&#34;(10013) Improper data type: %s&#34; % (type(ifaces_list)))
+
+        # 2. Concatenate list elements
+        string_to_print = separator.join(ifaces_list)
+
+        # 3. Actual printing to stdout
+        print(string_to_print)
+
+        return 0
+
+    def _get_combinations(self, list):
+        &#34;&#34;&#34;Get Combinations of list elements.
+         Example: ([1,2,3] -&gt; 1-2, 1-3, 2-3)
+
+        Args:
+            list: list of items, items can be any data type
+
+        Returns:
+            combination, object, tuple of pairs
+        &#34;&#34;&#34;
+        import itertools  # builtin, Py &gt;=3.5
+
+        # print(list)
+
+        # Example: (list:[1,2,3] -&gt; combinations: [(1,2), (1,3), (2,3)])
+        combinations = itertools.combinations(list, 2)  # https://docs.python.org/3/library/itertools.html#module-itertools
+        # for pair in combinations:
+        #     print(pair)
+        return combinations
+
+    def get_list_of_all_interfaces(self, format=AddressFormats.dotted_decimal):
+        &#34;&#34;&#34;Getting the list of interfaces of current system.
+        /This can be system-type specific. Can be different on Windows and Linux systems. But now we focus on Debian/Ubuntu like Linux OSs/
+
+        Args:
+            format: Enum (AddressFormats). Specifies the format of elements in ifaces list
+            testfile: Filename to pass test vectors. If not passed ,then current system interfaces will be listed. default=None
+
+        Returns:
+            ifaces_list: list of strings. Strings are in the required format (-&gt; format Arg)
+        &#34;&#34;&#34;
+        logger.debug(&#34;List of ifaces.&#34;)
+
+        # 1. Reading interface setting. Either from system or from a testfile
+        if not self.testfile:
+            logger.debug(&#34;Reading ifaces from current os&#34;)
+            ip_addr_show = self._read_interfaces_on_current_system()
+        else:
+            logger.debug(&#34;Reading ifaces from testfile: %s&#34;%self.testfile)
+            ip_addr_show = self._read_interfaces_from_testfile(self.testfile)
+        logger.debug(ip_addr_show)
+
+        # 2. Filter text for IP addresses
+        ifaces_list = self._filter_ip_addresses(ip_addr_show, format)
+        logger.info(ifaces_list)
+
+        return ifaces_list
+
+    def print_interface_addresses(self):
+        &#34;&#34;&#34;Write all IPv4 addresses to stdout, separated by newlines&#34;&#34;&#34;
+        ifaces = self.get_list_of_all_interfaces(format=AddressFormats.dotted_decimal) # list of all interfaces
+        self._formatted_print(ifaces,separator=&#34;\n&#34;)
+
+    def print_interface_addresses_with_prefix(self):
+        &#34;&#34;&#34;Write all IPv4 addresses to stdout, separated by newlines. WITH NETMASK&#34;&#34;&#34;
+        ifaces = self.get_list_of_all_interfaces(format=AddressFormats.dotted_decimal_with_netmask)  # list of all interfaces
+        self._formatted_print(ifaces, separator=&#34;\n&#34;)
+
+    def print_overlapping_interface_addresses(self):
+        &#34;&#34;&#34;Write ovelapping IPv4 addresses to stdout, separated by newlines&#34;&#34;&#34;
+        logger.debug(self.testfile)
+        ifaces = self.get_list_of_all_interfaces(format=AddressFormats.dotted_decimal_with_netmask)  # list of all interfaces
+        overlaps = self._check_overlaps(ifaces)
+        self._formatted_print(overlaps, separator=&#34;\n&#34;)
+
+    def _read_interfaces_from_testfile(self, testfile):
+        &#34;&#34;&#34;Reading network interface settings from a testfile.
+        Testfile should contain a text that&#39;s format is identical to &#39;ip addr show&#39; command output on Linux systems
+
+        Returns:
+            ifaces: string. Output of ip addr show command
+        &#34;&#34;&#34;
+        # 1. Check testfile format
+        # ToDo: this is not implemented. Some basic cehcking would be required
+
+        # 2. Read file content
+        f = open(testfile, &#34;r&#34;)
+        ifaces = f.read()
+        f.close()
+        return ifaces
+
+    def _read_interfaces_on_current_system(self):
+        &#34;&#34;&#34;Reading network interface settings. This could be moved to an OS-specific class and could be based on &#39;ifconfig&#39; and &#39;ip&#39; commands.
+         Current implementation uses &#39;ip&#39; command.
+
+         Returns:
+             ifaces: string. Output of ip addr show command
+        &#34;&#34;&#34;
+        cmd = &#34;ip addr show&#34;
+        cmd = cmd.split(&#34; &#34;)
+        s = subprocess.run(cmd, stdout=subprocess.PIPE, check=True) # throws exception in case of any issue
+        ifaces = s.stdout.decode(&#34;utf-8&#34;)
+        return ifaces
+
+    def _switch_to_ip_version_specific_class(self, ip_version):
+        &#34;&#34;&#34;Switch to class specific to IPv4 / IPv6.
+        IPv4: it does not have separate class for now -&gt; no swithcing needed
+        IPv6: switching to InterfaceParser_IPv6
+
+        self.ip_version will be set to IPVersion.IPv4 or IPVersion.IPv6 for later usage in class methods
+        &#34;&#34;&#34;
+        if ip_version == &#34;4&#34;:
+            self.ip_version=IPVersion.IPv4
+            logger.debug(&#34;IPv4 has been selected&#34;)
+        elif ip_version == &#34;6&#34;:
+            self.__class__= InterfaceParser_IPv6 # Switching to more specific class
+            self.ip_version=IPVersion.IPv6
+            logger.debug(&#34;IPv6 has been selected&#34;)
+        else:
+            raise ValueError(&#34;Invalid IP Version has been selected: %s&#34;%ip_version)
+
+
+class InterfaceParser_IPv6(InterfaceParser):
+    &#34;&#34;&#34;Child class of InterfaceParser for replacing IPv4 method to IPv6.
+    Switching to this child class happens in __init__() of parent class, based on IP version.&#34;&#34;&#34;
+
+    def read_system_addresses(self):
+        pass
+
+    def _filter_ip_addresses(self, ip_addr_show_output, format=AddressFormats.dotted_decimal):
+        &#34;&#34;&#34;Filter for IP addresses in text and insert them to a list.
+        IPv6 version
+
+        Args:
+            ip_addr_show: multiline text, format is identical with &#39;ip addr show&#39; command output format. (https://man7.org/linux/man-pages/man8/ip-address.8.html)
+            format: Enum (AddressFormats). Specifies the format of elements in ifaces list
+
+        Returns:
+            ifaces_list: list of strings
+        &#34;&#34;&#34;
+        raise Exception(&#34;This method is not implemented yet.&#34;)
+        ifaces_list = list()
+
+        # Define regexp patters for finding IPv4 format
+        # Wanted address lines starting with &#39;inet &#39;6.
+
+        # Select te proper regexp patter based on format argument
+        #AddressFormats.ipv6_hex , AddressFormats.ipv6_hex etc.
+
+        # Search for the actual addresses and append ifaces_list
+        # lines = ip_addr_show_output.split(&#34;\n&#34;)
+        # for line in lines:
+        #     #ipv4_addr = re.search(r&#39;\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}&#39;, line)
+        #     ipv4_addr = re.search(pattern, line)
+        #     if ipv4_addr:
+        #         ipv4_addr = ipv4_addr.group()
+        #         ifaces_list.append(ipv4_addr[5:]) # cut down &#34;inet &#34; from the beginning
+
+        return ifaces_list</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="interface_parser.AddressFormats"><code class="flex name class">
+<span>class <span class="ident">AddressFormats</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AddressFormats(ExtendedEnum):
+    dotted_decimal = 0 # e.g. 127.0.0.0
+    dotted_decimal_with_netmask = 1 # e.g. 127.0.0.1/8
+    binary = 2 # e.g. 11011111 00111010 00000001 00001010
+    ipv6_hex =3 # not used yet
+    ipv6_zero_supression = 4 # not used yet</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="interface_parser.ExtendedEnum" href="#interface_parser.ExtendedEnum">ExtendedEnum</a></li>
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="interface_parser.AddressFormats.binary"><code class="name">var <span class="ident">binary</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="interface_parser.AddressFormats.dotted_decimal"><code class="name">var <span class="ident">dotted_decimal</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="interface_parser.AddressFormats.dotted_decimal_with_netmask"><code class="name">var <span class="ident">dotted_decimal_with_netmask</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="interface_parser.AddressFormats.ipv6_hex"><code class="name">var <span class="ident">ipv6_hex</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="interface_parser.AddressFormats.ipv6_zero_supression"><code class="name">var <span class="ident">ipv6_zero_supression</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="interface_parser.ExtendedEnum"><code class="flex name class">
+<span>class <span class="ident">ExtendedEnum</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class for Enums with smart methods</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ExtendedEnum(Enum): # These type of &#34;util&#34; classes usually go to a more global python file (e.g. my_project_global.py) -  Peter Vago
+    &#34;&#34;&#34;Class for Enums with smart methods&#34;&#34;&#34;
+    @classmethod
+    def listnames(cls):
+        return list(map(lambda c: c.name, cls))
+    @classmethod
+    def listvalues(cls):
+        return list(map(lambda c: c.value, cls))</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="interface_parser.AddressFormats" href="#interface_parser.AddressFormats">AddressFormats</a></li>
+<li><a title="interface_parser.IPVersion" href="#interface_parser.IPVersion">IPVersion</a></li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="interface_parser.ExtendedEnum.listnames"><code class="name flex">
+<span>def <span class="ident">listnames</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def listnames(cls):
+    return list(map(lambda c: c.name, cls))</code></pre>
+</details>
+</dd>
+<dt id="interface_parser.ExtendedEnum.listvalues"><code class="name flex">
+<span>def <span class="ident">listvalues</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def listvalues(cls):
+    return list(map(lambda c: c.value, cls))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="interface_parser.IPVersion"><code class="flex name class">
+<span>class <span class="ident">IPVersion</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class IPVersion(ExtendedEnum):
+    IPv4 = 4
+    IPv6 = 6</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="interface_parser.ExtendedEnum" href="#interface_parser.ExtendedEnum">ExtendedEnum</a></li>
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="interface_parser.IPVersion.IPv4"><code class="name">var <span class="ident">IPv4</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="interface_parser.IPVersion.IPv6"><code class="name">var <span class="ident">IPv6</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="interface_parser.InterfaceParser"><code class="flex name class">
+<span>class <span class="ident">InterfaceParser</span></span>
+<span>(</span><span>**kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Interface parser class.
+Reading and listing (printing) interface configurations</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InterfaceParser(object):
+    &#34;&#34;&#34;Interface parser class.
+    Reading and listing (printing) interface configurations&#34;&#34;&#34;
+    ip_version=IPVersion.IPv4
+    testfile = None
+
+    def __init__(self, **kwargs):
+
+        # If ip_version is specified....else it is set to &#39;4&#39;
+        try:
+            ip_version = kwargs.get(&#34;ip_version&#34;) # &#34;4&#34; or &#34;6&#34;
+        except:
+            ip_version=&#34;4&#34;
+        self._switch_to_ip_version_specific_class(ip_version)  # IPv4 / IPv6
+
+    def call_command(self, command):
+        &#34;&#34;&#34;Method for calling a method by passing method name as string (&#34;command&#34;).
+        This help keeping the main method of this class centralized. (error handling etc.)&#34;&#34;&#34;
+
+        if command in dir(self): # If command string represents a valid method in this class...
+            method = getattr(self, str(command), lambda: &#34;Invalid mode.&#34;) # convert &#34;command&#34; string into method
+            # Executing the actual method. This could be in a try-except structure and Exception could be handled here.
+            method()
+        else:
+            raise ValueError(&#34;Invalid command: %s. Refer to help for available commands.&#34;%command)
+
+    def _check_overlaps(self, if_list):
+        &#34;&#34;&#34;Using ipaddress module: network.overlaps(other_network) return True if they overlap
+        BUT: &#34;Multiple IPs in the same subnet are still fine&#34; !!!
+
+        Args:
+            if_list: list of strings. Each string should represent a network address
+
+        Returns:
+            overlaps: list of overlapping interface names. names are elements of if_list
+        &#34;&#34;&#34;
+        from ipaddress import IPv4Interface
+
+        # # overlaps method is &#34;symmetric&#34; -&gt; Enough to test combination excluding duplicates ([1,2,3] -&gt; 1-2, 1-3, 2-3)
+        # combinations = get_combinations([1,2,3,4]) # Testing
+        combinations = self._get_combinations(if_list)  # Testing
+
+        overlaps = list()
+        # Test each pairs for overlapping
+        for pair in combinations:
+            try:
+                addr_a = pair[0]  # string
+                addr_b = pair[1]
+                if_a = IPv4Interface(addr_a)  # object
+                if_b = IPv4Interface(addr_b)
+                net_a = if_a.network  # &#34;network&#34;
+                net_b = if_b.network
+            except:
+                raise ValueError(&#34;(10001) unexpected inteface-pair: %s&#34; % str(pair))
+            # print(pair, if_a, if_b)
+
+            if net_a.overlaps(net_b):  # True if if_a and if_b overlap
+                # If networks overlap, but IPs are in the same network , that is fine. Otherwise add ifaces to overlaps list.
+                if (if_a.network == if_b.network):
+                    pass  # Do not append &#39;overlaps&#39; list, because it&#39;s &#39;still fine&#39;
+                else:
+                    overlaps.append(addr_a)
+                    overlaps.append(addr_b)
+            else:
+                pass
+
+        return overlaps
+
+    def _filter_ip_addresses(self, ip_addr_show_output, format=AddressFormats.dotted_decimal):
+        &#34;&#34;&#34;Filter for IP addresses in text and insert them to a list.
+        IPv4 version
+
+        Args:
+            ip_addr_show: multiline text, format is identical with &#39;ip addr show&#39; command output format. (https://man7.org/linux/man-pages/man8/ip-address.8.html)
+            format: Enum (AddressFormats). Specifies the format of elements in ifaces list
+
+        Returns:
+            ifaces_list: list of strings
+        &#34;&#34;&#34;
+        ifaces_list = list()
+
+        # Define regexp patters for finding IPv4 format
+        # Wanted address lines starting with &#39;inet &#39;. So we exclude the sit0 type interfaces , e.g. &#34;link/sit 0.0.0.0 brd 0.0.0.0&#34;
+        pattern_ipv4_without_mask = re.compile(&#39;inet \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}&#39;) # # 127.0.0.1, 192.168.0.28
+        pattern_ipv4_with_mask = re.compile(&#39;inet \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/\d{1,2}&#39;) # 127.0.0.1/8, 192.168.0.28/24
+
+        # Select te proper regexp patter based on format argument
+        if format == AddressFormats.dotted_decimal:
+            pattern = pattern_ipv4_without_mask
+        elif format == AddressFormats.dotted_decimal_with_netmask:
+            pattern = pattern_ipv4_with_mask
+        else:
+            raise ValueError(&#34;(10010) Requested address format is not implemented:%s&#34;%(str(format.name)))
+
+        # Search for the actual addresses and append ifaces_list
+        lines = ip_addr_show_output.split(&#34;\n&#34;)
+        for line in lines:
+            #ipv4_addr = re.search(r&#39;\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}&#39;, line)
+            ipv4_addr = re.search(pattern, line)
+            if ipv4_addr:
+                ipv4_addr = ipv4_addr.group()
+                ifaces_list.append(ipv4_addr[5:]) # cut down &#34;inet &#34; from the beginning
+
+        return ifaces_list
+
+    def _formatted_print(self, ifaces_list, separator=&#34;\n&#34;):
+        &#34;&#34;&#34; Printing only.
+        Printing list elements separated by &#39;separator&#39;. Default separator is new line &#39;\n&#39;.
+
+        Args:
+            ifaces_list: list of strings to print
+            separator: elements separated by &#39;separator&#39;. Default separator is new line &#39;\n&#39;.
+
+        Returns:
+
+        &#34;&#34;&#34;
+        # 1. Basic format and/or datatype checking..
+        if not isinstance(ifaces_list, list):
+            raise TypeError(&#34;(10013) Improper data type: %s&#34; % (type(ifaces_list)))
+
+        # 2. Concatenate list elements
+        string_to_print = separator.join(ifaces_list)
+
+        # 3. Actual printing to stdout
+        print(string_to_print)
+
+        return 0
+
+    def _get_combinations(self, list):
+        &#34;&#34;&#34;Get Combinations of list elements.
+         Example: ([1,2,3] -&gt; 1-2, 1-3, 2-3)
+
+        Args:
+            list: list of items, items can be any data type
+
+        Returns:
+            combination, object, tuple of pairs
+        &#34;&#34;&#34;
+        import itertools  # builtin, Py &gt;=3.5
+
+        # print(list)
+
+        # Example: (list:[1,2,3] -&gt; combinations: [(1,2), (1,3), (2,3)])
+        combinations = itertools.combinations(list, 2)  # https://docs.python.org/3/library/itertools.html#module-itertools
+        # for pair in combinations:
+        #     print(pair)
+        return combinations
+
+    def get_list_of_all_interfaces(self, format=AddressFormats.dotted_decimal):
+        &#34;&#34;&#34;Getting the list of interfaces of current system.
+        /This can be system-type specific. Can be different on Windows and Linux systems. But now we focus on Debian/Ubuntu like Linux OSs/
+
+        Args:
+            format: Enum (AddressFormats). Specifies the format of elements in ifaces list
+            testfile: Filename to pass test vectors. If not passed ,then current system interfaces will be listed. default=None
+
+        Returns:
+            ifaces_list: list of strings. Strings are in the required format (-&gt; format Arg)
+        &#34;&#34;&#34;
+        logger.debug(&#34;List of ifaces.&#34;)
+
+        # 1. Reading interface setting. Either from system or from a testfile
+        if not self.testfile:
+            logger.debug(&#34;Reading ifaces from current os&#34;)
+            ip_addr_show = self._read_interfaces_on_current_system()
+        else:
+            logger.debug(&#34;Reading ifaces from testfile: %s&#34;%self.testfile)
+            ip_addr_show = self._read_interfaces_from_testfile(self.testfile)
+        logger.debug(ip_addr_show)
+
+        # 2. Filter text for IP addresses
+        ifaces_list = self._filter_ip_addresses(ip_addr_show, format)
+        logger.info(ifaces_list)
+
+        return ifaces_list
+
+    def print_interface_addresses(self):
+        &#34;&#34;&#34;Write all IPv4 addresses to stdout, separated by newlines&#34;&#34;&#34;
+        ifaces = self.get_list_of_all_interfaces(format=AddressFormats.dotted_decimal) # list of all interfaces
+        self._formatted_print(ifaces,separator=&#34;\n&#34;)
+
+    def print_interface_addresses_with_prefix(self):
+        &#34;&#34;&#34;Write all IPv4 addresses to stdout, separated by newlines. WITH NETMASK&#34;&#34;&#34;
+        ifaces = self.get_list_of_all_interfaces(format=AddressFormats.dotted_decimal_with_netmask)  # list of all interfaces
+        self._formatted_print(ifaces, separator=&#34;\n&#34;)
+
+    def print_overlapping_interface_addresses(self):
+        &#34;&#34;&#34;Write ovelapping IPv4 addresses to stdout, separated by newlines&#34;&#34;&#34;
+        logger.debug(self.testfile)
+        ifaces = self.get_list_of_all_interfaces(format=AddressFormats.dotted_decimal_with_netmask)  # list of all interfaces
+        overlaps = self._check_overlaps(ifaces)
+        self._formatted_print(overlaps, separator=&#34;\n&#34;)
+
+    def _read_interfaces_from_testfile(self, testfile):
+        &#34;&#34;&#34;Reading network interface settings from a testfile.
+        Testfile should contain a text that&#39;s format is identical to &#39;ip addr show&#39; command output on Linux systems
+
+        Returns:
+            ifaces: string. Output of ip addr show command
+        &#34;&#34;&#34;
+        # 1. Check testfile format
+        # ToDo: this is not implemented. Some basic cehcking would be required
+
+        # 2. Read file content
+        f = open(testfile, &#34;r&#34;)
+        ifaces = f.read()
+        f.close()
+        return ifaces
+
+    def _read_interfaces_on_current_system(self):
+        &#34;&#34;&#34;Reading network interface settings. This could be moved to an OS-specific class and could be based on &#39;ifconfig&#39; and &#39;ip&#39; commands.
+         Current implementation uses &#39;ip&#39; command.
+
+         Returns:
+             ifaces: string. Output of ip addr show command
+        &#34;&#34;&#34;
+        cmd = &#34;ip addr show&#34;
+        cmd = cmd.split(&#34; &#34;)
+        s = subprocess.run(cmd, stdout=subprocess.PIPE, check=True) # throws exception in case of any issue
+        ifaces = s.stdout.decode(&#34;utf-8&#34;)
+        return ifaces
+
+    def _switch_to_ip_version_specific_class(self, ip_version):
+        &#34;&#34;&#34;Switch to class specific to IPv4 / IPv6.
+        IPv4: it does not have separate class for now -&gt; no swithcing needed
+        IPv6: switching to InterfaceParser_IPv6
+
+        self.ip_version will be set to IPVersion.IPv4 or IPVersion.IPv6 for later usage in class methods
+        &#34;&#34;&#34;
+        if ip_version == &#34;4&#34;:
+            self.ip_version=IPVersion.IPv4
+            logger.debug(&#34;IPv4 has been selected&#34;)
+        elif ip_version == &#34;6&#34;:
+            self.__class__= InterfaceParser_IPv6 # Switching to more specific class
+            self.ip_version=IPVersion.IPv6
+            logger.debug(&#34;IPv6 has been selected&#34;)
+        else:
+            raise ValueError(&#34;Invalid IP Version has been selected: %s&#34;%ip_version)</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="interface_parser.InterfaceParser_IPv6" href="#interface_parser.InterfaceParser_IPv6">InterfaceParser_IPv6</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="interface_parser.InterfaceParser.ip_version"><code class="name">var <span class="ident">ip_version</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="interface_parser.InterfaceParser.testfile"><code class="name">var <span class="ident">testfile</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="interface_parser.InterfaceParser.call_command"><code class="name flex">
+<span>def <span class="ident">call_command</span></span>(<span>self, command)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Method for calling a method by passing method name as string ("command").
+This help keeping the main method of this class centralized. (error handling etc.)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def call_command(self, command):
+    &#34;&#34;&#34;Method for calling a method by passing method name as string (&#34;command&#34;).
+    This help keeping the main method of this class centralized. (error handling etc.)&#34;&#34;&#34;
+
+    if command in dir(self): # If command string represents a valid method in this class...
+        method = getattr(self, str(command), lambda: &#34;Invalid mode.&#34;) # convert &#34;command&#34; string into method
+        # Executing the actual method. This could be in a try-except structure and Exception could be handled here.
+        method()
+    else:
+        raise ValueError(&#34;Invalid command: %s. Refer to help for available commands.&#34;%command)</code></pre>
+</details>
+</dd>
+<dt id="interface_parser.InterfaceParser.get_list_of_all_interfaces"><code class="name flex">
+<span>def <span class="ident">get_list_of_all_interfaces</span></span>(<span>self, format=AddressFormats.dotted_decimal)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Getting the list of interfaces of current system.
+/This can be system-type specific. Can be different on Windows and Linux systems. But now we focus on Debian/Ubuntu like Linux OSs/</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>format</code></strong></dt>
+<dd>Enum (AddressFormats). Specifies the format of elements in ifaces list</dd>
+<dt><strong><code>testfile</code></strong></dt>
+<dd>Filename to pass test vectors. If not passed ,then current system interfaces will be listed. default=None</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>ifaces_list</code></dt>
+<dd>list of strings. Strings are in the required format (-&gt; format Arg)</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_list_of_all_interfaces(self, format=AddressFormats.dotted_decimal):
+    &#34;&#34;&#34;Getting the list of interfaces of current system.
+    /This can be system-type specific. Can be different on Windows and Linux systems. But now we focus on Debian/Ubuntu like Linux OSs/
+
+    Args:
+        format: Enum (AddressFormats). Specifies the format of elements in ifaces list
+        testfile: Filename to pass test vectors. If not passed ,then current system interfaces will be listed. default=None
+
+    Returns:
+        ifaces_list: list of strings. Strings are in the required format (-&gt; format Arg)
+    &#34;&#34;&#34;
+    logger.debug(&#34;List of ifaces.&#34;)
+
+    # 1. Reading interface setting. Either from system or from a testfile
+    if not self.testfile:
+        logger.debug(&#34;Reading ifaces from current os&#34;)
+        ip_addr_show = self._read_interfaces_on_current_system()
+    else:
+        logger.debug(&#34;Reading ifaces from testfile: %s&#34;%self.testfile)
+        ip_addr_show = self._read_interfaces_from_testfile(self.testfile)
+    logger.debug(ip_addr_show)
+
+    # 2. Filter text for IP addresses
+    ifaces_list = self._filter_ip_addresses(ip_addr_show, format)
+    logger.info(ifaces_list)
+
+    return ifaces_list</code></pre>
+</details>
+</dd>
+<dt id="interface_parser.InterfaceParser.print_interface_addresses"><code class="name flex">
+<span>def <span class="ident">print_interface_addresses</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Write all IPv4 addresses to stdout, separated by newlines</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def print_interface_addresses(self):
+    &#34;&#34;&#34;Write all IPv4 addresses to stdout, separated by newlines&#34;&#34;&#34;
+    ifaces = self.get_list_of_all_interfaces(format=AddressFormats.dotted_decimal) # list of all interfaces
+    self._formatted_print(ifaces,separator=&#34;\n&#34;)</code></pre>
+</details>
+</dd>
+<dt id="interface_parser.InterfaceParser.print_interface_addresses_with_prefix"><code class="name flex">
+<span>def <span class="ident">print_interface_addresses_with_prefix</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Write all IPv4 addresses to stdout, separated by newlines. WITH NETMASK</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def print_interface_addresses_with_prefix(self):
+    &#34;&#34;&#34;Write all IPv4 addresses to stdout, separated by newlines. WITH NETMASK&#34;&#34;&#34;
+    ifaces = self.get_list_of_all_interfaces(format=AddressFormats.dotted_decimal_with_netmask)  # list of all interfaces
+    self._formatted_print(ifaces, separator=&#34;\n&#34;)</code></pre>
+</details>
+</dd>
+<dt id="interface_parser.InterfaceParser.print_overlapping_interface_addresses"><code class="name flex">
+<span>def <span class="ident">print_overlapping_interface_addresses</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Write ovelapping IPv4 addresses to stdout, separated by newlines</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def print_overlapping_interface_addresses(self):
+    &#34;&#34;&#34;Write ovelapping IPv4 addresses to stdout, separated by newlines&#34;&#34;&#34;
+    logger.debug(self.testfile)
+    ifaces = self.get_list_of_all_interfaces(format=AddressFormats.dotted_decimal_with_netmask)  # list of all interfaces
+    overlaps = self._check_overlaps(ifaces)
+    self._formatted_print(overlaps, separator=&#34;\n&#34;)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="interface_parser.InterfaceParser_IPv6"><code class="flex name class">
+<span>class <span class="ident">InterfaceParser_IPv6</span></span>
+<span>(</span><span>**kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Child class of InterfaceParser for replacing IPv4 method to IPv6.
+Switching to this child class happens in <strong>init</strong>() of parent class, based on IP version.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InterfaceParser_IPv6(InterfaceParser):
+    &#34;&#34;&#34;Child class of InterfaceParser for replacing IPv4 method to IPv6.
+    Switching to this child class happens in __init__() of parent class, based on IP version.&#34;&#34;&#34;
+
+    def read_system_addresses(self):
+        pass
+
+    def _filter_ip_addresses(self, ip_addr_show_output, format=AddressFormats.dotted_decimal):
+        &#34;&#34;&#34;Filter for IP addresses in text and insert them to a list.
+        IPv6 version
+
+        Args:
+            ip_addr_show: multiline text, format is identical with &#39;ip addr show&#39; command output format. (https://man7.org/linux/man-pages/man8/ip-address.8.html)
+            format: Enum (AddressFormats). Specifies the format of elements in ifaces list
+
+        Returns:
+            ifaces_list: list of strings
+        &#34;&#34;&#34;
+        raise Exception(&#34;This method is not implemented yet.&#34;)
+        ifaces_list = list()
+
+        # Define regexp patters for finding IPv4 format
+        # Wanted address lines starting with &#39;inet &#39;6.
+
+        # Select te proper regexp patter based on format argument
+        #AddressFormats.ipv6_hex , AddressFormats.ipv6_hex etc.
+
+        # Search for the actual addresses and append ifaces_list
+        # lines = ip_addr_show_output.split(&#34;\n&#34;)
+        # for line in lines:
+        #     #ipv4_addr = re.search(r&#39;\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}&#39;, line)
+        #     ipv4_addr = re.search(pattern, line)
+        #     if ipv4_addr:
+        #         ipv4_addr = ipv4_addr.group()
+        #         ifaces_list.append(ipv4_addr[5:]) # cut down &#34;inet &#34; from the beginning
+
+        return ifaces_list</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="interface_parser.InterfaceParser" href="#interface_parser.InterfaceParser">InterfaceParser</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="interface_parser.InterfaceParser_IPv6.read_system_addresses"><code class="name flex">
+<span>def <span class="ident">read_system_addresses</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_system_addresses(self):
+    pass</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="interface_parser.InterfaceParser" href="#interface_parser.InterfaceParser">InterfaceParser</a></b></code>:
+<ul class="hlist">
+<li><code><a title="interface_parser.InterfaceParser.call_command" href="#interface_parser.InterfaceParser.call_command">call_command</a></code></li>
+<li><code><a title="interface_parser.InterfaceParser.get_list_of_all_interfaces" href="#interface_parser.InterfaceParser.get_list_of_all_interfaces">get_list_of_all_interfaces</a></code></li>
+<li><code><a title="interface_parser.InterfaceParser.print_interface_addresses" href="#interface_parser.InterfaceParser.print_interface_addresses">print_interface_addresses</a></code></li>
+<li><code><a title="interface_parser.InterfaceParser.print_interface_addresses_with_prefix" href="#interface_parser.InterfaceParser.print_interface_addresses_with_prefix">print_interface_addresses_with_prefix</a></code></li>
+<li><code><a title="interface_parser.InterfaceParser.print_overlapping_interface_addresses" href="#interface_parser.InterfaceParser.print_overlapping_interface_addresses">print_overlapping_interface_addresses</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="interface_parser.AddressFormats" href="#interface_parser.AddressFormats">AddressFormats</a></code></h4>
+<ul class="">
+<li><code><a title="interface_parser.AddressFormats.binary" href="#interface_parser.AddressFormats.binary">binary</a></code></li>
+<li><code><a title="interface_parser.AddressFormats.dotted_decimal" href="#interface_parser.AddressFormats.dotted_decimal">dotted_decimal</a></code></li>
+<li><code><a title="interface_parser.AddressFormats.dotted_decimal_with_netmask" href="#interface_parser.AddressFormats.dotted_decimal_with_netmask">dotted_decimal_with_netmask</a></code></li>
+<li><code><a title="interface_parser.AddressFormats.ipv6_hex" href="#interface_parser.AddressFormats.ipv6_hex">ipv6_hex</a></code></li>
+<li><code><a title="interface_parser.AddressFormats.ipv6_zero_supression" href="#interface_parser.AddressFormats.ipv6_zero_supression">ipv6_zero_supression</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="interface_parser.ExtendedEnum" href="#interface_parser.ExtendedEnum">ExtendedEnum</a></code></h4>
+<ul class="">
+<li><code><a title="interface_parser.ExtendedEnum.listnames" href="#interface_parser.ExtendedEnum.listnames">listnames</a></code></li>
+<li><code><a title="interface_parser.ExtendedEnum.listvalues" href="#interface_parser.ExtendedEnum.listvalues">listvalues</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="interface_parser.IPVersion" href="#interface_parser.IPVersion">IPVersion</a></code></h4>
+<ul class="">
+<li><code><a title="interface_parser.IPVersion.IPv4" href="#interface_parser.IPVersion.IPv4">IPv4</a></code></li>
+<li><code><a title="interface_parser.IPVersion.IPv6" href="#interface_parser.IPVersion.IPv6">IPv6</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="interface_parser.InterfaceParser" href="#interface_parser.InterfaceParser">InterfaceParser</a></code></h4>
+<ul class="">
+<li><code><a title="interface_parser.InterfaceParser.call_command" href="#interface_parser.InterfaceParser.call_command">call_command</a></code></li>
+<li><code><a title="interface_parser.InterfaceParser.get_list_of_all_interfaces" href="#interface_parser.InterfaceParser.get_list_of_all_interfaces">get_list_of_all_interfaces</a></code></li>
+<li><code><a title="interface_parser.InterfaceParser.ip_version" href="#interface_parser.InterfaceParser.ip_version">ip_version</a></code></li>
+<li><code><a title="interface_parser.InterfaceParser.print_interface_addresses" href="#interface_parser.InterfaceParser.print_interface_addresses">print_interface_addresses</a></code></li>
+<li><code><a title="interface_parser.InterfaceParser.print_interface_addresses_with_prefix" href="#interface_parser.InterfaceParser.print_interface_addresses_with_prefix">print_interface_addresses_with_prefix</a></code></li>
+<li><code><a title="interface_parser.InterfaceParser.print_overlapping_interface_addresses" href="#interface_parser.InterfaceParser.print_overlapping_interface_addresses">print_overlapping_interface_addresses</a></code></li>
+<li><code><a title="interface_parser.InterfaceParser.testfile" href="#interface_parser.InterfaceParser.testfile">testfile</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="interface_parser.InterfaceParser_IPv6" href="#interface_parser.InterfaceParser_IPv6">InterfaceParser_IPv6</a></code></h4>
+<ul class="">
+<li><code><a title="interface_parser.InterfaceParser_IPv6.read_system_addresses" href="#interface_parser.InterfaceParser_IPv6.read_system_addresses">read_system_addresses</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
