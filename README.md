@@ -8,18 +8,21 @@ get-ips is small tool written in Python3 to list network interface settings.
 ## Gettin source code
 
 git clone https://github.com/petervago/get-ips
+
 chmod +x <workdir>/src/get-ips
 
 ## Dependencies
 
-*Python modules
-** argparse - processign command line arguments
-** argcomplete - command line arguments
-** ipaddress - network address tweaking
-** pytest - unti testing
+###  Python modules
 
-* Optional Python modules
-** pdoc3 - for generating html documentation
+* argparse - processign command line arguments
+* argcomplete - command line arguments
+* ipaddress - network address tweaking
+* pytest - unti testing
+
+### Optional Python modules
+
+* pdoc3 - for generating html documentation
 
 ## Usage Examples
 
