@@ -1,0 +1,7 @@
+Content of examples directory:
+
+- 01_ip_addr.txt: ip addr show output on a laptop, Desktop Ubuntu 18.04LTS
+- 01_ip_addr.txt: ip addr show output on an Odroid C1
+- 03_ip_addr.txt: ip addr show output on a laptop, Desktop Ubuntu 18.04LTS, VPN enabled (tun0)
+- 04_ip_addr_show_router.txt: ip addr show output on a linux router
+- 05_ip_add_overlaps: overlapping interfaces + multiple addresses in the same subnet
